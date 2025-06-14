@@ -1,0 +1,67 @@
+Financial AI Assistant 
+
+A smart financial advisor website that can answer questions about any stock or company using AI
+
+How It Works (Step by Step)
+1. User Asks Question
+User types: "How is Apple stock performing?"
+Symbol: AAPL
+
+2. Data Collection (3 Sources)
+Your system automatically fetches data from:
+News Fetcher (news_fetcher.py)
+Gets latest financial news from Yahoo Finance, Google News, Reuters
+Found 133 articles about Apple
+Filters only relevant financial content
+
+Earnings Fetcher (earnings_fetcher.py)
+
+Gets company financial statements from Yahoo Finance
+Revenue, profit, debt, cash flow data
+Quarterly and annual reports
+
+Stock Data Fetcher (stock_data.py)
+
+Gets stock prices, volume, technical indicators
+RSI, moving averages, support/resistance levels
+Historical performance data
+
+3. AI Processing (ai_processor/)
+All your documents get processed by AI:
+Document Processor (document_processor.py)
+
+Cleans and organizes all the financial documents
+Extracts key financial numbers and metrics
+Splits long documents into smaller chunks
+
+Vector Database (ChromaDB)
+
+Converts all text into mathematical vectors
+Stores 136 document chunks about Apple
+Makes documents searchable by meaning, not just keywords
+
+4. AI Models Answer Your Question
+Main AI Models You're Using:
+
+Embedding Model (sentence-transformers/all-MiniLM-L6-v2)
+
+Converts text into numbers computers understand
+Finds relevant documents for your question
+
+
+Question-Answering Model (distilbert-base-uncased-distilled-squad)
+
+Reads financial documents and answers your question
+Like having a smart financial analyst
+Sentiment Analysis (cardiffnlp/twitter-roberta-base-sentiment-latest)
+
+Determines if news is positive, negative, or neutral
+Gives confidence score
+
+5. Generate Smart Response
+The AI combines all information and creates:
+
+Intelligent answer based on real financial data
+Sentiment analysis (positive/negative/neutral)
+Confidence score (how sure the AI is)
+Source links (where information came from)
